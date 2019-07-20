@@ -74,7 +74,7 @@ adj.group <- group[match(colnames(micro), group$V1), ]
 
 w.micro <- w.res.get(group = adj.group, mat = t(micro), method = m, adjust = TRUE)
 
-if(!file.info(outdir)$isdir)
+if(!file.exists(outdir))
 	dir.create(outdir)
 
 out <- ifelse(m == 'W', paste0(outdir, '/', prefix, '.wilcox-test.result.xls'), 
